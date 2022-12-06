@@ -9,14 +9,16 @@ function Index ({breads})  {
         {/* This is a JSX comment. */}
         <div className="newButton">
         <a href="/breads/new"><button>Add a new bread</button></a>
+        
         </div>
         <ul>
           {
             breads.map((bread, index)=> {
               return (<li key={index}>
-                <a href ={`breads/${index}`}>
+                <a href ={`breads/${bread.id}`}>
                     {bread.name}
                 </a>
+                <p>{bread.getBakedBy()}</p>
               </li>)
             }) 
           }
