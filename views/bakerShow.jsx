@@ -1,7 +1,7 @@
 const React = require('react')
 const Default = require('./layouts/Default')
 
-function Show({ baker }) {
+function bakerShow({ baker }) {
     return (
         <Default>
             <h3>{baker.name}</h3>
@@ -19,6 +19,10 @@ function Show({ baker }) {
                     })
                 }
             </ul>
+            <form action={`/bakers/${baker.id}?_method=DELETE`} method="POST">
+            <input type="submit" value="DELETE"/>
+            </form>
+
             <div className="bioButton">
                 <a href="/breads"><button>Go back to the index</button></a>
             </div>
@@ -26,4 +30,4 @@ function Show({ baker }) {
     )
 }
 
-module.exports = Show
+module.exports = bakerShow
