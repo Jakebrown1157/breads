@@ -19,21 +19,24 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
     () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
   )
   
-
 //routes
 app.get('/', (req,res)=> {
     res.send('welcome to an Awesome App about breads!')
 })
 
+// breads
 const breadsController = require('./controllers/breads_controller.js')
-app.use('/breads',breadsController)
+app.use('/breads', breadsController)
+
+// bakers
+const bakersController = require('./controllers/bakers_controller.js')
+app.use('/bakers', bakersController)
 
 // 404 Page
 app.get('*', (req, res) => {
     res.send('404')
 })
   
-
 //listen
 app.listen(PORT, () => {
     console.log('listening on port' , PORT)
